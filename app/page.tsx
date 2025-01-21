@@ -1,4 +1,5 @@
 "use client";
+import { marked } from 'marked';
 
 import { useState, useEffect } from "react";
 import { generateClient } from "aws-amplify/data";
@@ -15,7 +16,19 @@ Amplify.configure(outputs);
 const client = generateClient<Schema>();
 
 export default function Home() {
+  
+ // Function to convert Markdown to HTML
+  function convertMarkdownToHTML(markdownContent: string) {
+    return marked(markdownContent);  // Converts markdown to HTML
+  }
 
+  // Example to test
+  const sampleMarkdown = `
+    # Hello, World!
+    This is a **Markdown** example.
+  `;
+  
+  const htmlContent = convertMarkdownToHTML(sampleMarkdown);
   return (
     <main>
       <h1>Welcome to My Website!</h1>
