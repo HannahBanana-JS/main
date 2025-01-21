@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image"; // Importing Image for optimization
 
 export default function About() {
   const [showWork, setShowWork] = useState(false);
@@ -30,7 +31,12 @@ export default function About() {
       {/* Add photo section */}
       <div>
         <h2>My Photos</h2>
-        <img src="your-photo-url.jpg" alt="Your Photo" />
+        <Image
+          src="/your-photo-url.jpg" // Add your photo here (upload it to the public folder)
+          alt="Your Photo"
+          width={300} // Adjust size as needed
+          height={300}
+        />
       </div>
     </div>
   );
