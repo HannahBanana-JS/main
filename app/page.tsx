@@ -8,11 +8,12 @@ import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 
+// Configure Amplify
 Amplify.configure(outputs);
 
 const client = generateClient<Schema>();
 
-export default function App() {
+export default function Home() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
 
   function listTodos() {
@@ -33,15 +34,10 @@ export default function App() {
 
   return (
     <main>
-     export default function Home() {
-  return (
-    <div>
-      <h1>Welcome to My Custom Website</h1>
-      <p>This is the homepage of my website, built with AWS Amplify and Next.js!</p>
-    </div>
-  );
-}
-
+      <div>
+        <h1>Welcome to My Custom Website</h1>
+        <p>This is the homepage of my website, built with AWS Amplify and Next.js!</p>
+      </div>
       <div>
         🥳 App successfully hosted. Try creating a new todo.
         <br />
@@ -52,3 +48,4 @@ export default function App() {
     </main>
   );
 }
+
