@@ -15,23 +15,6 @@ Amplify.configure(outputs);
 const client = generateClient<Schema>();
 
 export default function Home() {
-  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
-
-  function listTodos() {
-    client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
-    });
-  }
-
-  useEffect(() => {
-    listTodos();
-  }, []);
-
-  function createTodo() {
-    client.models.Todo.create({
-      content: window.prompt("Todo content"),
-    });
-  }
 
   return (
     <main>
@@ -42,17 +25,6 @@ export default function Home() {
       <Link href="/about">
         <button>About Me</button>
       </Link>
-
-      {/* Additional content like todo list can be added here */}
-      <div>
-        <h2>Todo List:</h2>
-        <ul>
-          {todos.map((todo, index) => (
-            <li key={index}>{todo.content}</li>
-          ))}
-        </ul>
-        <button onClick={createTodo}>Create Todo</button>
-      </div>
     </main>
   );
 }
