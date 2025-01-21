@@ -32,20 +32,21 @@ export default function Home() {
     });
   }
 
+import Link from "next/link";
+
+export default function Home() {
   return (
     <main>
-      <div>
-        <h1>Welcome to My Custom Website</h1>
-        <p>This is the homepage of my website, built with AWS Amplify and Next.js!</p>
-      </div>
-      <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
-        <a href="https://docs.amplify.aws/nextjs/start/quickstart/nextjs-app-router-client-components/">
-          Review next steps of this tutorial.
-        </a>
-      </div>
+      <h1>Welcome to My Website!</h1>
+      <p>This is my homepage.</p>
+
+      {/* Add a link to the About Me page */}
+      <Link href="/about">
+        <button>About Me</button>
+      </Link>
     </main>
   );
 }
+
+
 
