@@ -7,6 +7,7 @@ import "./../app/app.css";
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
+import Link from "next/link";
 
 // Configure Amplify
 Amplify.configure(outputs);
@@ -32,9 +33,6 @@ export default function Home() {
     });
   }
 
-import Link from "next/link";
-
-export default function Home() {
   return (
     <main>
       <h1>Welcome to My Website!</h1>
@@ -44,9 +42,21 @@ export default function Home() {
       <Link href="/about">
         <button>About Me</button>
       </Link>
+
+      {/* Additional content like todo list can be added here */}
+      <div>
+        <h2>Todo List:</h2>
+        <ul>
+          {todos.map((todo, index) => (
+            <li key={index}>{todo.content}</li>
+          ))}
+        </ul>
+        <button onClick={createTodo}>Create Todo</button>
+      </div>
     </main>
   );
 }
+
 
 
 
